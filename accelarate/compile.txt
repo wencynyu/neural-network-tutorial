@@ -1,0 +1,13 @@
+g++ loop_demo.cpp -o loop_demo
+g++ avx_demo.cpp -o avx_demo -mavx512f
+nvcc cuda_demo.cu -o cuda_demo
+
+
+## 分别用loop，avx，cuda执行21亿次16个单精度浮点数值的运算操作
+## r9 7950hx rtx4060 10GB内存：（可能存在swap导致性能偏低，仅供参考）
+$ ./loop_demo
+Elapsed time: 19.6932 seconds
+$ ./avx_demo
+Elapsed time: 7.18133 seconds
+$ ./cuda_demo
+Elapsed calc time: 0.057177 seconds
